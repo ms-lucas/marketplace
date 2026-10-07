@@ -5,6 +5,8 @@ import { ProxyModule } from './modules/proxy/proxy.module.js';
 import { AppController } from './app.controller.js';
 import { MiddlewareModule } from './modules/middleware/middleware.module.js';
 import { LoggingMiddleware } from './modules/middleware/middlewares/logging.middleware.js';
+import { SharedModule } from './modules/shared/shared.module.js';
+import { AuthModule } from './modules/auth/auth.module.js';
 
 @Module({
   imports: [
@@ -13,13 +15,15 @@ import { LoggingMiddleware } from './modules/middleware/middlewares/logging.midd
     }),
     ThrottlerModule.forRoot([{ ttl: 60000, limit: 100 }]),
     ProxyModule,
-    MiddlewareModule
+    MiddlewareModule,
+    SharedModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggingMiddleware).forRoutes('*')
+    consumer.apply(LoggingMiddleware).forRoutes('*');
   }
 }
