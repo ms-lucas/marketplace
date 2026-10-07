@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { HttpClient } from '@nestjs/http-client';
-import { serviceConfig } from '../../config/modules/gateway.config.js';
+import { serviceConfig } from '../../../config/gateway.config.js';
 
 @Injectable()
 export class ProxyService {

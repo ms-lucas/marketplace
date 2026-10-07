@@ -1,10 +1,10 @@
 export const serviceConfig = {
   users: {
-    url: process.env.USERS_SERVICE_URL || 'http://localhost:3000',
+    url: process.env.USERS_SERVICE_URL || 'http://localhost:3001',
     timeout: 10000,
   },
   products: {
-    url: process.env.PRODUCTS_SERVICE_URL || 'http://localhost:3001',
+    url: process.env.PRODUCTS_SERVICE_URL || 'http://localhost:3002',
     timeout: 10000,
   },
   checkout: {
